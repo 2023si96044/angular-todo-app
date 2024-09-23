@@ -1,0 +1,19 @@
+<div class="todo-container">
+    <h1>FSAD ToDo App</h1>
+  
+    <!-- Input for new todo -->
+    <div class="todo-input">
+      <input type="text" [(ngModel)]="newTodo" placeholder="Enter a to-do...">
+      <button (click)="addTodo()">Add</button>
+    </div>
+  
+    <!-- To-Do list -->
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos; let i = index" [class.completed]="todo.completed">
+        <input type="checkbox" [(ngModel)]="todo.completed" (click)="toggleComplete(i)">
+        <span>{{ todo.text }}</span>
+        <fa-icon [icon]="faTrash" (click)="deleteTodo(i)" class="delete-icon"></fa-icon> <!-- Use fa-icon here -->
+      </li>
+    </ul>
+  </div>
+  
